@@ -33,7 +33,7 @@ export default class AiEngineer extends Plugin {
 
     this.registerView(
       VIEW_TYPE_AI_CHAT,
-      (leaf) => new AiEngineerChatView(leaf)
+      (leaf) => new AiEngineerChatView(leaf, this, this.settings)
     );
   }
 
