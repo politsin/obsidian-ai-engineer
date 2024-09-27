@@ -65,6 +65,12 @@ export default class AiEngineer extends Plugin {
         new Notice("Error: Could not open Ai Chat tab.");
       }
     }
+    const textarea = document.querySelector('.chatbox textarea') as HTMLTextAreaElement; 
+    if (textarea) {
+      setTimeout(() => {
+        textarea.focus();
+      }, 100);
+    }
 
     // "Reveal" the leaf in case it is in a collapsed sidebar
     if (leaf) {

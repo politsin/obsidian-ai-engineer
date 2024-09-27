@@ -1,6 +1,7 @@
 import { ItemView, Notice, setIcon, WorkspaceLeaf } from "obsidian";
 import AiEngineer from "src/main";
 import { AiSettings } from "src/set/settingsType";
+import { createActionBox } from "./actionBox";
 
 export const VIEW_TYPE_AI_CHAT = "ai-chat-view";
 
@@ -24,36 +25,13 @@ export class AiEngineerChatView extends ItemView {
     const container = this.containerEl.children[1];
     container.empty();
     container.createEl("h4", { text: "Ai Engineer" });
-    const textarea = document.createElement('textarea');
-    textarea.setAttribute('contenteditable', true.toString());
-    textarea.setAttribute('placeholder', 'Mesasge...');
-    textarea.style.overflow = 'auto';
-    textarea.style.resize = 'none'; 
-    const submit = document.createElement('button', {});
-    submit.textContent = 'send';
-    submit.classList.add('submit-button');
-    submit.title = 'send';
-    setIcon(submit, 'arrow-up');
-    submit.addEventListener('click', () => {
-      new Notice("Click");
-    });
+
     const chatContainer = container.createEl('div', {
       attr: { class: 'chatContainer' }
     });
-    const actionBox = chatContainer.createEl('div', {
-      attr: { class: 'chatbox' }
-    });
-    actionBox.appendChild(textarea);
-    actionBox.appendChild(submit);
-    // Function to adjust textarea height
-    const adjustTextareaHeight = () => {
-      textarea.style.height = 'auto';
-      textarea.style.height = textarea.scrollHeight + 'px'; 
-    };
 
-    // Call adjustTextareaHeight initially and on input
-    adjustTextareaHeight();
-    textarea.addEventListener('input', adjustTextareaHeight);
+    // Create and append the action box
+    const actionBox = createActionBox(chatContainer); 
   }
 
   async onClose() {
