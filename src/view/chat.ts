@@ -1,9 +1,13 @@
 import { ItemView, WorkspaceLeaf } from "obsidian";
+import AiEngineer from "src/main";
+import { AiSettings } from "src/set/settingsType";
 
 export const VIEW_TYPE_AI_CHAT = "ai-chat-view";
 
 export class AiEngineerChatView extends ItemView {
-  constructor(leaf: WorkspaceLeaf) {
+  private plugin: AiEngineer;
+  private settings: AiSettings;
+  constructor(leaf: WorkspaceLeaf, plugin: AiEngineer, settings: AiSettings) {
     super(leaf);
   }
 
@@ -12,13 +16,13 @@ export class AiEngineerChatView extends ItemView {
   }
 
   getDisplayText() {
-    return "Example view";
+    return "Ai Engineer";
   }
 
   async onOpen() {
     const container = this.containerEl.children[1];
     container.empty();
-    container.createEl("h4", { text: "Example view" });
+    container.createEl("h4", { text: "Ai Engineer" });
   }
 
   async onClose() {

@@ -1,5 +1,5 @@
 import { Notice, Plugin, WorkspaceLeaf } from "obsidian";
-import { AiEngineerSettingTab } from "./set/settings";
+import { AiEngineerSettingTab } from "./set/AiSettings";
 import { AiSettings, DEFAULTS } from "./set/settingsType";
 import { AiEngineerChatView, VIEW_TYPE_AI_CHAT } from "./view/chat";
 
