@@ -6,11 +6,13 @@ export const createActionBox = (container: HTMLElement) => {
   textarea.setAttribute('placeholder', 'Mesasge...');
   textarea.style.overflow = 'auto';
   textarea.style.resize = 'none';
+  textarea.classList.add('chat-textarea');
+  
 
   const submitButton = document.createElement('button', {});
+  submitButton.title = 'send';
   submitButton.textContent = 'send';
   submitButton.classList.add('submit-button');
-  submitButton.title = 'send';
   setIcon(submitButton, 'arrow-up');
   submitButton.addEventListener('click', () => {
     console.log("Submit button clicked!");
@@ -33,6 +35,7 @@ export const createActionBox = (container: HTMLElement) => {
   // Call adjustTextareaHeight initially and on input
   adjustTextareaHeight();
   textarea.addEventListener('input', adjustTextareaHeight);
+  
 
   return actionBox;
 };
