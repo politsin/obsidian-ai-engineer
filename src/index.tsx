@@ -48,9 +48,10 @@ export default class ReactStarterPlugin extends Plugin {
     if (this.app.workspace.getLeavesOfType(VIEW_TYPE).length) {
       return;
     }
-    this.app.workspace.getRightLeaf(false).setViewState({
+    this.app.workspace.getRightLeaf(false)?.setViewState({
       type: VIEW_TYPE,
     });
+
   }
 }
 
