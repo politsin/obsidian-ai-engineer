@@ -4,10 +4,14 @@ import { AiSettings } from "src/set/settingsType";
 import { createActionBox } from "./actionBox";
 import { createHeader } from "./headerConteiner";
 import { createChat } from "./chatConteiner";
+import { Root, createRoot } from "react-dom/client";
+import { StrictMode } from "react";
+import { ReactView } from "./ReactView";
 
 export const VIEW_TYPE_AI_CHAT = "ai-chat-view";
 
 export class AiEngineerChatView extends ItemView {
+  root: Root | null = null;
   private plugin: AiEngineer;
   private settings: AiSettings;
   aiEnginerView: any;
@@ -28,13 +32,22 @@ export class AiEngineerChatView extends ItemView {
   }
 
   async onOpen() {
+    this.root = createRoot(this.containerEl.children[1]);
+    this.root.render(
+      <StrictMode>
+      <ReactView />,
+      </StrictMode>,
+    );
+  }
+  old() {
     this.aiEnginerView = this.containerEl.children[1];
     this.aiEnginerView.empty();
-    
+    this.aiEnginerView.id = 'ai-engineer-view'
+
     this.headerContainer = createHeader(this.aiEnginerView);
     this.chatContainer = createChat(this.aiEnginerView);
-    this.actionBox = createActionBox(this.aiEnginerView); 
-    
+    this.actionBox = createActionBox(this.aiEnginerView);
+
     // Add event listener to the submit button
 
     // Add event listener to the textarea for Enter key press

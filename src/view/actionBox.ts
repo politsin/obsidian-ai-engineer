@@ -20,7 +20,7 @@ export const createActionBox = (container: HTMLElement) => {
   });
 
   const actionBox = container.createEl('div', {
-    attr: { class: 'chatbox' }
+    attr: { id: 'ai-action-box' },
   });
   actionBox.appendChild(textarea);
   actionBox.appendChild(submitButton);

@@ -1,0 +1,19 @@
+#ai-engineer-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Занимаем всю высоту родительского элемента */
+}
+
+#ai-chat {
+  flex-grow: 1;
+  /* Позволяем чату занимать всё доступное пространство */
+  overflow-y: auto;
+  /* Добавляем скролл, когда сообщений много */
+}
+
+#ai-action-box {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
