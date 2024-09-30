@@ -17,7 +17,7 @@ export default class AiEngineer extends Plugin {
       "Ai Engineer",
       (evt: MouseEvent) => {
         // Called when the user clicks the icon.
-        new Notice("Ai Chat tab open!");
+        // new Notice("Ai Chat tab open!");
         this.activateView();
       }
     );
@@ -25,8 +25,8 @@ export default class AiEngineer extends Plugin {
     ribbonIconEl.addClass("ai-engineer-ribbon-class");
 
     // This adds a status bar item to the bottom of the app. Does not work on mobile apps.
-    const statusBarItemEl = this.addStatusBarItem();
-    statusBarItemEl.setText("AiE");
+    // const statusBarItemEl = this.addStatusBarItem();
+    // statusBarItemEl.setText("AiE");
 
     // This adds a settings tab so the user can configure various aspects of the plugin
     this.addSettingTab(new AiEngineerSettingTab(this.app, this));
